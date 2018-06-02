@@ -10,7 +10,7 @@ class BlockChain(object):
 
     @staticmethod
     def create_genesis_block():
-        return Block(0, {"Genesis"}, "0")
+        return Block(0, {"name": "Genesis Block"}, "0")
 
     def get_latest_block(self):
         return self.chain[-1]
