@@ -21,10 +21,12 @@ class TestBlockChain(unittest.TestCase):
         blockchain = BlockChain()
         blockchain.add_block(block1)
         blockchain.add_block(block2)
-        b1 = blockchain.chain[0]
-        b2 = blockchain.chain[1]
-        b3 = blockchain.chain[2]
-        assert blockchain.chain.__len__() == 3
-        assert b1.previous_hash == "0"
-        assert b2.previous_hash == b1.hash
-        assert b3.previous_hash == b2.hash
+        assert blockchain.is_blockchain_valid()
+
+    def test_add_block_negetive(self):
+        block1 = Block(1, {"sender": "Amit", "receiver": "Karnik", "amount": 100})
+        block2 = Block(3, {"sender": "Amit", "receiver": "Karnik", "amount": 100})
+        blockchain = BlockChain()
+        blockchain.add_block(block1)
+        blockchain.add_block(block2)
+        assert not blockchain.is_blockchain_valid()
