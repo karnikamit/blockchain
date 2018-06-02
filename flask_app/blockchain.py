@@ -6,7 +6,6 @@ from flask_app.block import Block
 class BlockChain(object):
     def __init__(self):
         self.chain = [self.create_genesis_block()]
-        self.current_transactions = []
 
     @staticmethod
     def create_genesis_block():
